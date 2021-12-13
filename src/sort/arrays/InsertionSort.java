@@ -19,7 +19,12 @@ public class InsertionSort {
 		}
 
 		System.out.println(Arrays.toString(intArray));
-
+		System.out.println(10%3);
+		 int result = (int) Math.pow(10, 3);
+	     System.out.println(result);
+	     System.out.println(874725 / result %10);
+	     
+	     
 	}
 
 }
