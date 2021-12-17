@@ -23,7 +23,7 @@ public class MergeSort {
 		
 		mergeSort(intArray, start, mid);
 		mergeSort(intArray, mid, end);		
-		merge(intArray,start,mid,end); // sort between 2 parts sorted
+		mergeDesc(intArray,start,mid,end); // sort between 2 parts sorted
 		
 	}
 	
@@ -43,6 +43,29 @@ public class MergeSort {
 		
 		while(i <mid && j<end) {
 			intTemp[tempIndex++] = intArray[i] <= intArray[j] ? intArray[i++] : intArray[j++];
+		}
+		
+		// optimisation sur la copy, copy par bloc... a voir en details
+		System.arraycopy(intArray, i, intArray, start+tempIndex, mid-i);
+		System.arraycopy(intTemp, 0, intArray, start, tempIndex);
+	}
+	
+	public static void mergeDesc(int[] intArray, int start,int mid, int end) {
+		
+		// 	pas besoin de trier si le dernier element du 1er part est inferieur 
+		//	à 1er element du 2eme part
+		if (intArray[mid -1] >= intArray[mid]) {
+			return;
+		}
+		
+		int i = start;
+		int j = mid;
+		int tempIndex =0;
+		
+		int[] intTemp = new int[end-start];
+		
+		while(i < mid && j< end) {
+			intTemp[tempIndex++] = intArray[i] >= intArray[j] ? intArray[i++] : intArray[j++];
 		}
 		
 		// optimisation sur la copy, copy par bloc... a voir en details
