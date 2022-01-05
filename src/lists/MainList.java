@@ -1,5 +1,7 @@
 package lists;
 
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
@@ -26,12 +28,22 @@ public class MainList {
         list.addToFront(janeJones);
         list.addToFront(johnDoe);
         list.addToFront(marySmith);
-        list.addToEnd(mikeWilson);
-//        
-//        list.removeFromFront();
-        list.removeFromEnd();
+//        list.addToEnd(mikeWilson);
+        
+        list.addBefore(mikeWilson, marySmith);
         list.printList();
-        System.out.println(list.getSize());
+        
+//        LinkedList<Employee> list2 = new LinkedList<>();
+//        list2.addFirst(janeJones);
+//        list2.addFirst(johnDoe);
+//        list2.addFirst(marySmith);
+//        list2.addFirst(mikeWilson);
+//        list2.addLast(mikeWilson);
+//        Iterator iter = list2.iterator();
+//        
+//        while (iter.hasNext()){
+//        	System.out.println(iter.next());
+//        }
         
     }
 }
