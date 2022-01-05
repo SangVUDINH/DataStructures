@@ -25,28 +25,21 @@ public class IntegerLinkedList {
     }
 
     public void insertSorted(Integer value) {
-    	if (head == null) {
+    	if (head == null || head.getValue() > value) {
     		addToFront(value);
+    		return;
+    	} 
     	
-    	} else {
-        	IntegerNode nodeToAdd = new IntegerNode(value);
-        	
-        	if (head.getValue() > value) {
-        		nodeToAdd.setNext(head);
-        		head = nodeToAdd;
-        	} else {
-        		
-        		IntegerNode current = head;
-            	while (current.getNext() !=null && current.getNext().getValue()< value) {
-            		current = current.getNext();
-            	}
+    	IntegerNode nodeToAdd = new IntegerNode(value);
+		IntegerNode current = head;
+		
+    	while (current.getNext() !=null && current.getNext().getValue()< value) {
+    		current = current.getNext();
+    	}
 
-            	nodeToAdd.setNext(current.getNext());
-            	current.setNext(nodeToAdd);
-        	}
-        	
-        	
-    	}  
+    	nodeToAdd.setNext(current.getNext());
+    	current.setNext(nodeToAdd);
+    	size++;
 
     }
 
